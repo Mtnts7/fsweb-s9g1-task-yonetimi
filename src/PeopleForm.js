@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const PeopleForm = ({ kisiler, submitFn }) => {
   const [isim, setIsim] = useState("");
@@ -22,6 +24,7 @@ const PeopleForm = ({ kisiler, submitFn }) => {
     setIsim("");
   }
 
+  const notify = () =>toast(`${isim} aramıza hoşgeldin`)
   return (
     <form className="taskForm" onSubmit={handleSubmit}>
       <div className="form-line">
@@ -41,12 +44,14 @@ const PeopleForm = ({ kisiler, submitFn }) => {
 
       <div className="form-line">
         <button
+          onClick={notify}
           className="submit-button"
           type="submit"
           disabled={isim.length === 0 || error}
         >
           Ekle
         </button>
+        <ToastContainer/>
       </div>
     </form>
   );

@@ -97,6 +97,8 @@ const TaskForm = ({ kisiler, submitFn }) => {
       people: [],
     });
   }
+  
+  
 
   return (
     <form className="taskForm" onSubmit={handleSubmit}>
@@ -144,6 +146,7 @@ const TaskForm = ({ kisiler, submitFn }) => {
               />
               {p}
             </label>
+            
           ))}
         </div>
         <p className="input-error">{formErrors.people}</p>

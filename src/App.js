@@ -6,7 +6,6 @@ import TaskHookForm from "./TaskHookForm";
 import PeopleForm from "./PeopleForm";
 import { initialTasks, initialTeam } from "./data";
 
-
 function App() {
   const [tasks, setTasks] = useState(initialTasks);
   const [team, setTeam] = useState(initialTeam);
@@ -20,7 +19,11 @@ function App() {
   }
 
   function handleComplete(id) {
-    console.log("tamamlama fonksiyonunu buraya yazın")
+    const newTaskArray = tasks.map((task) => {
+      if(task.id === id)
+        task.status = "yapıldı" 
+    })
+      handleTaskSubmit(newTaskArray);
   }
 
   return (
